@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
 .swiper {
   width: 100%;
@@ -29,10 +29,6 @@
 .swiper-button-prev:after,
 .swiper-button-next:after {
   font-size: 16px !important;
-}
-
-.btn-primary {
-  @apply bg-yellow-400  px-12 py-2 rounded-md text-base font-secondary font-bold hover:bg-navy hover:text-white transition-all duration-200 cursor-pointer;
 }
 
 .html {
