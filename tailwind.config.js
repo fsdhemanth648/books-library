@@ -7,6 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        'primary': "#218BE6",
+        "primary-light": "#219BE7",
         'navy': '#0D0842',
         'magenta': '#FF5841'
       },
