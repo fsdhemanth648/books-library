@@ -1,11 +1,9 @@
-"use client";
-
 import React from "react";
 import {
   NavLink as MNavLink,
   NavLinkProps as MNavLinkProps,
 } from "@mantine/core";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 interface NavLinkProps extends Omit<MNavLinkProps, "component"> {
   href: string;
@@ -13,7 +11,7 @@ interface NavLinkProps extends Omit<MNavLinkProps, "component"> {
 
 const NavLink: React.FC<NavLinkProps> = ({ href, ...props }) => {
   return (
-    <Link href={href} passHref legacyBehavior>
+    <Link to={href}>
       <MNavLink {...props} />
     </Link>
   );

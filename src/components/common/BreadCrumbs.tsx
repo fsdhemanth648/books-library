@@ -1,6 +1,6 @@
 import React from "react";
 import { Breadcrumbs } from "@mantine/core";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 type ItemsType = {
   title: string;
@@ -22,7 +22,7 @@ const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ items }) => {
           </span>
         ) : (
           <Link
-            href={item.href}
+            to={item.href}
             key={item.title}
             className="text-lg font-semibold"
           >
