@@ -1,6 +1,5 @@
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import { IoIosSearch } from "react-icons/io";
-
 import { MdFavoriteBorder } from "react-icons/md";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -8,9 +7,12 @@ import TextInput from "./common/TextInput";
 import UserMenu from "./UserMenu";
 import Button from "./common/Button";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const Navbar = () => {
   const [isLoggedInUser, setLoggedInUser] = useState<boolean>(false);
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6 font-primary">
       <nav className="flex justify-between items-center gap-2">
@@ -43,16 +45,18 @@ const Navbar = () => {
               <MdFavoriteBorder className="size-6" />
             </Button>
           </div>
-          <Button
-            variant="filled"
-            color="#FF5841"
-            leftSection={<IoCartOutline className="size-6" />}
-          >
-            <p className="flex items-center whitespace-nowrap">
-              <span className="hidden md:block">Cart</span>
-              &nbsp;(0)
-            </p>
-          </Button>
+          <Link to="/cart">
+            <Button
+              variant="filled"
+              color="#FF5841"
+              leftSection={<IoCartOutline className="size-6" />}
+            >
+              <p className="flex items-center whitespace-nowrap">
+                <span className="hidden md:block">Cart</span>
+                &nbsp;{cartItems.length > 0 ? `(${cartItems.length})` : "(0)"}
+              </p>
+            </Button>
+          </Link>
         </div>
       </nav>
     </header>

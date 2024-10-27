@@ -3,12 +3,21 @@ import { FiShoppingCart } from "react-icons/fi";
 import { BookType } from "../types/books";
 import { getImgUrl } from "../utils/common";
 import Button from "./common/Button";
+import { useDispatch } from "react-redux";
+import { addToCartWithAlert } from "../redux/features/cartSlice";
+import { AppDispatch } from "../redux/store";
 
 type CardProps = {
   data: BookType;
 };
 
 const Card: React.FC<CardProps> = ({ data }) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleAddToCart = (data: BookType) => {
+    dispatch(addToCartWithAlert(data));
+  };
+
   return (
     <div className=" rounded-lg transition-shadow duration-300">
       <div className="flex flex-col sm:flex-row sm:items-center sm:h-72 sm:justify-center gap-4">
@@ -37,7 +46,8 @@ const Card: React.FC<CardProps> = ({ data }) => {
           </p>
           <Button
             variant="filled"
-            leftSection={<FiShoppingCart className="" />}
+            leftSection={<FiShoppingCart />}
+            onClick={() => handleAddToCart(data)}
           >
             Add to Cart
           </Button>

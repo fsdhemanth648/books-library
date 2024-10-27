@@ -5,6 +5,7 @@ import "@mantine/core/styles.css";
 
 import { MantineProvider } from "@mantine/core";
 import Footer from "./components/Footer";
+import Alert from "./components/Alert";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Outlet />
       </main>
       <Footer />
+      <Alert />
     </MantineProvider>
   );
 }
